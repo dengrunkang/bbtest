@@ -40,6 +40,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--Animation-->
 <script src="js/wow.min.js"></script>
 <link href="css/animate.css" rel='stylesheet' type='text/css' />
+<!--clock-->
+<script type="text/javascript" src="./file/jquery.min.js"></script>
+<script type="text/javascript" src="./file/jscex.min.js"></script>
+<script type="text/javascript" src="./file/jscex-parser.js"></script>
+<script type="text/javascript" src="./file/jscex-jit.js"></script>
+<script type="text/javascript" src="./file/jscex-builderbase.min.js"></script>
+<script type="text/javascript" src="./file/jscex-async.min.js"></script>
+<script type="text/javascript" src="./file/jscex-async-powerpack.min.js"></script>
+<script type="text/javascript" src="./file/functionsmodify.js" charset="utf-8"></script>
 <script>
 	new WOW().init();
 </script>
@@ -88,6 +97,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			 <li><a href="#" class="btn1 btn2 btn-1 btn1-1b">康仔</a></li>
 			 <li><a href="#" class="btn1 btn2 btn-1 btn1-1b">珍仔</a></li>
 		   </ul>
+		   <ul class="button">
+			 <li>亲爱的，我们相爱相知已经是...</li>
+			 <li><div id="clock"></div></li>
+		   </ul>
+<script>
+    (function(){
+
+        var textAnimate = eval(Jscex.compile("async", function () {
+		    var together = new Date();
+		    together.setFullYear(2019,4 , 20); 			//时间年月日
+		    together.setHours(0);						//小时	
+		    together.setMinutes(0);					//分钟
+		    together.setSeconds(0);					//秒前一位
+		    together.setMilliseconds(0);				//秒第二位
+
+		    $("#code").show().typewriter();
+            $("#clock-box").fadeIn(500);
+            while (true) {
+                timeElapse(together);
+                $await(Jscex.Async.sleep(1000));
+            }
+        }));
+
+        var runAsync = eval(Jscex.compile("async", function () {
+            textAnimate().start();
+        }));
+
+        runAsync().start();
+    })();
+ </script>
 	   </div>
 	</div>
 </div>
