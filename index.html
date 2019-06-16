@@ -130,7 +130,125 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	   </div>
 	</div>
 </div>
+
 <div class="content_top">
+<style>
+/*
+Common
+ */
+.containerBirthday h1 {
+	color:#333;
+	font-weight:100;
+	background:rgba(255,255,255,.5);
+	text-align:center;
+}
+.containerBirthday ul li {
+	font-size:60px;
+	font-weight:100;
+	color:#fff;
+	border-radius:10px;
+	text-align:center;
+}
+.containerBirthday ul li:nth-child(1) {
+	background:rgba(255,102,102,.7);
+}
+.containerBirthday ul li:nth-child(2) {
+	background:rgba(0,204,153,.75);
+}
+.containerBirthday ul li:nth-child(3) {
+	background:rgba(204,153,204,.55);
+}
+.containerBirthday ul li:nth-child(4) {
+	background:rgba(255,150,124,.2);
+}
+sub {
+	font-weight:400;
+	font-size:15px;
+}
+/*
+桌面显示器,width>=992px
+ */
+@media (min-width:992px) {
+	.containerBirthday {
+	text-align:center;
+	background:rgba(0,0,0,.3);
+	border-radius:10px;
+	transition:all 0.5s;
+}
+.containerBirthday h1 {
+
+	font-size:40px;
+}
+.containerBirthday ul {
+	overflow:auto;
+}
+.containerBirthday ul li {
+	display:inline-block;
+	width:180px;
+	height:180px;
+	line-height:180px;
+	font-size:60px;
+	font-weight:100;
+	color:#fff;
+	border-radius:10px;
+}
+.containerBirthday ul li:nth-child(2) {
+	margin:0 15px;
+}
+.containerBirthday ul li:nth-child(3) {
+	margin:0 15px 0 0;
+}
+}/*
+平板,768px=</style>
+<div class="content_middle wow fadeInUp" data-wow-delay="0.4s">
+  <div class="container">
+  <div class="col-md-12 grid_2">
+	<div class="containerBirthday">
+	  <h1>距离亲爱的珍珍生日还有：</h1>
+	  <ul>
+		<li><span id="day1"></span><sub>天</sub></li>
+		<li><span id="hour1"></span><sub>时</sub></li>
+		<li><span id="min1"></span><sub>分</sub></li>
+		<li><span id="sec1"></span><sub>秒</sub></li>
+	  </ul>
+	</div>
+	</div>
+  </div>
+</div>
+<script>
+function checkTime1(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+/**
+	 * [showTime description]
+	 * @return {[type]} [展示时间]
+	 */
+function showTime1() {
+    var curtime = new Date(); //当前时间
+    var endtime = new Date("2019/8/12,00:00:00"); //目标时间农历7月12
+    var leftTime = (endtime.getTime() - curtime.getTime()) / 1000; //毫秒(ms)
+    var leftDay = parseInt(leftTime / (24 * 60 * 60)); //剩余天数
+    var leftHour = parseInt(leftTime / (60 * 60) % 24); //剩余小时
+    var leftMin = parseInt(leftTime / 60 % 60); //剩余分钟
+    var leftSec = parseInt(leftTime % 60); //剩余秒
+    document.getElementById("day1").innerHTML = checkTime1(leftDay);
+    document.getElementById("hour1").innerHTML = checkTime1(leftHour);
+    document.getElementById("min1").innerHTML = checkTime1(leftMin);
+    document.getElementById("sec1").innerHTML = checkTime1(leftSec);
+    if (leftTime <= 0) {
+        document.getElementById("day1").innerHTML = 0;
+        document.getElementById("hour1").innerHTML = 0;
+        document.getElementById("min1").innerHTML = 0;
+        document.getElementById("sec1").innerHTML = 0;
+    }
+    setTimeout(showTime1, 1000);
+}
+showTime1();
+</script>
+
   <div class="container">
 	<div class="col-md-6 grid_1">
 	  <h2>你总说毕业遥遥无期</h2>
