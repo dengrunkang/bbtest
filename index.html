@@ -229,7 +229,7 @@ function checkTime1(i) {
 	 */
 function showTime1() {
     var curtime = new Date(); //当前时间
-    var endtime = new Date("2019/8/12,00:00:00"); //目标时间农历7月12
+    var endtime = new Date("2020/8/30,00:00:00"); //目标时间农历7月12
     var leftTime = (endtime.getTime() - curtime.getTime()) / 1000; //毫秒(ms)
     var leftDay = parseInt(leftTime / (24 * 60 * 60)); //剩余天数
     var leftHour = parseInt(leftTime / (60 * 60) % 24); //剩余小时
